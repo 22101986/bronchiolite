@@ -1,0 +1,93 @@
+<aside class="col-12 col-md-4 col-lg-3 col-xl-2 blog-sidebar">
+  <div class="row">
+    <div class="col-12">
+      <div class="card mb-2">
+        {# <a href="{{ path('help_my_baby') }}"> #}
+          <img class="img-fluid" src="{{ asset('assets/img/help_my_child_2.png') }}" />
+        </a>
+      </div>
+    </div>
+    <div class="col-12" style="width: 100%; height: 100%;">
+      <div class="card mb-2" style="width: 100%; height: 100%;">
+        <div
+          style="background-color: #0071BC; color: white; text-transform: uppercase; font-size: 12px; font-weight: bold; padding: 3px 0 0 10px;">
+          Actualités
+        </div>
+        {% if lastNews %}
+            {% for news in lastNews %}
+                <div class="card-body" style="border: 1px solid #6C7A89; border-top: 0;">
+                  <h5 class="card-title" style="font-weight: bold; font-size: 14px; color: #005289;">{{
+                      news.title | raw }}</h5>
+                  <p class="card-text" style="font-size: 13px">{{ news.description | raw }}</p>
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="card-body" style="border: 1px solid #6C7A89; font-size: 13px; border-top: 0;">
+          <p class="card-text">Aucune actualité pour le moment</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-12">
+      <div class="card mb-2">
+        <div
+          style="background-color: #0071BC; color: white; text-transform: uppercase; font-size: 12px; font-weight: bold; padding: 3px 0 0 10px;">
+          Point épidémiologique
+        </div>
+
+        {% if lastEpidemiologicalPoint %}
+        <div class="card-body" style="border: 1px solid #6C7A89; border-top: 0;">
+          <div class="row">
+            <div class="col-12">
+              <ul class="list-group">
+                {# <li class="list-group-item" style="font-size: 13px;"><a
+                    href="{{ path('actu_epidemiologique') }}">{{ lastEpidemiologicalPoint.name | raw }}</a></li> #}
+              </ul>
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="card-body" style="border: 1px solid #6C7A89; border-top: 0;">
+          <div class="row">
+            <div class="col-12">
+              <p class="card-text">Aucun point épidémiologique actuellement</p>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-12">
+      <div class="card mb-2">
+        <div
+          style="background-color: #0071BC; color: white; text-transform: uppercase; font-size: 12px; font-weight: bold; padding: 3px 0 0 10px;">
+          UKR
+        </div>
+        <div class="card-body" style="border: 1px solid #6C7A89; border-top: 0;">
+          <h6 class="card-title" style="font-weight: bold; font-size: 14px; color: #005289;">UNION des
+            KINÉSITHÉRAPEUTES RESPIRATOIRES RÉSEAU BRONCHIOLITE NORMAND</h6>
+          <p class="card-text" style="font-size: 13px">
+            Locaux ADIR Association <br />
+            Hôpital de Bois-Guillaume <br />
+            147 avenue du Maréchal Juin <br />
+            76230 BOIS-GUILLAUME <br />
+            TEL : 02 35 59 29 78 <br />
+          </p>
+          <hr />
+          <p style="font-size: 14px;"><b>Contact :</b></p>
+          <ul>
+            <li style="font-size: 13px;">rbhn.secretariat@sos-bronchiolite.org</li>
+            <li style="font-size: 13px;"><b>ukr-formation@ukrespi.fr</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>

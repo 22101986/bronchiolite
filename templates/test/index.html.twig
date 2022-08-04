@@ -1,0 +1,342 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<main class="container pt-2 pb-2">
+  {# <div class="row">
+    {{ render(controller('App\\Controller\\LeftSideController::leftSide')) }}
+
+    <div class="col-12 col-md-5 col-lg-6 col-xl-8 blog-main">
+      {% if ADHESION_A_RENOUVELLER and user %}
+
+        {% if user.isAdmin != true %}
+            {% if user.enabled == true %}
+            {% if isPaid == false %}
+            {% if isCheckPending == false %}
+            <h4 class="card-title font-weight-bold" style="color: #0071BC;">Pour adhérer
+              au Réseau Professionnel Bronchiolite Normand, ou renouveler sa cotisation :</h4>
+            <ul class="mt-3" style="font-size: 14px;">
+              <li class="mb-1">Payer la cotisation annuelle de 30€</li>
+            </ul>
+
+            <form method="POST" action="https://secure.payzen.eu/vads-payment/" class="mt-2 payedForm text-center">
+              <button style="border-radius: 0;" class="btn btn-primary text-center mx-auto btn-lg payed" type="submit"
+                name="payer" value="Payer">Payer ma cotisation par CB</button>
+            </form>
+            <div class="mt-2 payedForm text-center">
+              ou
+            </div>
+            <form method="POST" action="{{ path('paiement_cheque') }}" class="mt-2 text-center">
+              <button style="border-radius: 0;" class="btn btn-primary text-center mx-auto btn-lg" type="submit" name="payer"
+                value="Payer">Payer ma cotisation par chèque</button>
+            </form>
+            {% else %}
+            <div class="alert alert-primary" role="alert">
+              Paiement de cotisation en cours ...<br />
+              Vous avez déclaré payer votre adhésion par chèque <i>le {{ payment.createdAt | date('d/m/Y') }}</i>, et nous
+              vous en remercions.<br />
+              Nous validerons votre paiement, dès réception du chèque. <br />
+            </div>
+            {% endif %}
+            {% endif %}
+            {% else %}
+            <div class="alert alert-warning text-center" style="font-weight: bold;" role="alert">
+              Vous devez attendre la validation de votre compte pour pouvoir payer votre adhésion.
+            </div>
+            {% endif %}
+            <br/>
+        {% endif %}
+
+      {% else %}
+          <div id="carouselExampleSlidesOnly" class="carousel carousel-fade" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img class="d-block w-100" src="{{ asset('assets/img/first_pic.jpg') }}" alt="First slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="{{ asset('assets/img/second_pic.jpg') }}" alt="Second slide">
+              </div>
+              <div class="carousel-item">
+                <img class="d-block w-100" src="{{ asset('assets/img/third_pic.jpg') }}" alt="Third slide">
+              </div>
+            </div>
+          </div>
+      {% endif %} #}
+
+
+      <div class="card mt-2" style="border: 1px solid #6C7A89; border-radius: 0;">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-12 text-center mx-auto">
+              <a href="tel:+0235717082">
+                <img class="img-fluid" src="{{ asset('assets/img/find_kine_banner.png') }}" />
+              </a>
+            </div>
+          </div>
+          <p style="color: #0071BC;">Ce numéro fonctionne les samedis, dimanches et jours fériés de 8h à 19h pendant la
+            saison épidémique de bronchiolite de fin octobre à fin mars.</p>
+        </div>
+      </div>
+
+      <div class="card mb-2 mt-2" style="border: 1px solid #6C7A89; border-radius: 0;">
+        <div class="card-body">
+          <div class="row mb-2">
+            <div class="col-12 text-center mx-auto">
+              {# <img class="img-fluid" src="{{ asset('assets/img/call_number_banner.png') }}" /> #}
+            </div>
+          </div>
+          <p class="text-muted">Ce service, initié par les kinésithérapeutes normands, assure une permanance des soins
+            de kinésithérapie respiratoire, le week-end et les jours fériés, pour les enfants atteints de bronchiolite
+            ou d'asthme du nourrisson sur tout le territoire Normand.</p>
+          <p class="text-muted">Les kinésithérapeutes de garde reçoivent les enfants jusqu'à 3 ans sur présentation
+            obligatoire de l'ordonnance établie par le médecin.</p>
+          <p class="text-muted">Chaque week-end environ 40 kinésithérapeutes sont répartis sur toute la Normandie pour
+            répondre aux appels des patients.</p>
+        </div>
+      </div>
+    </div>
+    <aside class="col-12 col-md-3 col-lg-3 col-xl-2 blog-sidebar">
+      <div class="row">
+        <div class="col-12 col-sm-4 col-md-12">
+          <div class="card mb-2" style="background-color: #a3a3a3; border-radius: 0;">
+            {# {% if app.user %}
+            <div class="row mx-auto text-center">
+              <div class="col-12 mt-2">
+                <img class="img-fluid" src="{{ asset('assets/img/user_picto.png') }}" />
+              </div> #}
+              {# {% if app.user.isEnabled == false %}
+              <div class="col-12 mt-2">
+                <span class="badge badge-warning">en cours de validation</span>
+              </div>
+              {% endif %}
+            </div>
+            <div class="card-body text-center" style="color: white; font-size: 15px;">
+              Bonjour <b>{{ app.user.firstname|capitalize }}</b>, vous êtes actuellement connecté.
+              {% if is_granted('ROLE_ADMIN') %}
+              <br />
+              <a href="/admin/?entity=PaymentChequeEnCours" target="_blank" class="badge badge-warning"
+                title="{{nbreChequesEnAttente}} chèques en attente">{{nbreChequesEnAttente}} chèques </a>
+              {% endif %}
+              {% if is_granted('ROLE_ADMIN') %}
+              <a href="/admin/?entity=Contact" target="_blank" class="badge badge-info"
+                title="{{nbreMessages}} messages">{{nbreMessages}} messages </a>
+              {% endif %}
+              <br />
+              <a href="{{ path('my_account') }}" type="button" class="btn btn-info btn-block mt-2 btn-sm"
+                style="font-size: 12px; border-radius: 0; background-color: #0071BC; border-color: #0071BC;">Mon
+                compte</a>
+              <a href="{{ path('logout') }}" type="button" class="btn btn-danger btn-block btn-sm"
+                style="font-size: 12px;  border-radius: 0;">Déconnexion</a>
+            </div>
+            {% else %}
+            <div class="row mx-auto text-center">
+              <div class="col-12 mt-2">
+                <img class="img-fluid" src="{{ asset('assets/img/user_picto.png') }}" />
+              </div>
+            </div>
+            <div class="card-body">
+              {{ render(controller('App\\Controller\\SecurityController::login')) }}
+            </div>
+            {% endif %} #}
+          </div>
+        </div>
+        <div class="col-12 col-sm-4 col-md-12 mb-2 col-xs-custom">
+          {# <a href="{{ path('donation') }}"> #}
+            <div class="card text-center pointerHover" style="border-radius: 0;">
+              <img src="{{ asset('assets/img/donnation_2.png') }}">
+            </div>
+          </a>
+        </div>
+        <div class="col-12 col-sm-4 col-md-12 mb-2 col-xs-custom">
+          <div class="card text-center pointerHover" data-toggle="modal" data-target="#survey"
+            style="border-radius: 0;">
+            <img class="img-fluid pointerHover" src="{{ asset('assets/img/survey.png') }}">
+          </div>
+        </div>
+        <div class="col-12">
+          <div style="background-color: white;" class="p-3 text-center">
+            <div class="row">
+              <div class="col-12">
+                <a href="https://www.facebook.com/ReseauBronchioliteHautNormand/" target="_blank">
+                  <img class="img-fluid" src="{{ asset('assets/img/facebook.png') }}" />
+                </a>
+              </div>
+
+              <div class="col-12 mt-3">
+                <div class="fb-like" data-href="https://www.facebook.com/ReseauBronchioliteHautNormand/"
+                  data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal pour voter -->
+      <div class="modal fade" id="survey" tabindex="-1" role="dialog" aria-labelledby="survey" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          {# <form method="POST" action="{{ path('survey') }}"> #}
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Evaluation et satisfaction</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                      <label><b>Votre enfant</b></label><br />
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="childGender" id="childGender_0"
+                          value="0">
+                        <label class="form-check-label" for="childGender_0">Fille</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="childGender" id="childGender_1"
+                          value="1">
+                        <label class="form-check-label" for="childGender_1">Garçon</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="birthday"><b>Date de naissance</b></label>
+                      <input required type="text" class="form-control birthday" name="birthday" id="birthday">
+                    </div>
+
+
+                    <div class="form-group">
+                      <label for="seanceDate"><b>Date des séances</b></label>
+                      <input required type="text" class="form-control seanceDate" name="seanceDate" id="seanceDate">
+                    </div>
+
+                    <div class="form-group">
+                      <label for="department"><b>Département</b></label>
+                      <select required class="form-control" id="department" name="department">
+                        <option value="">-</option>
+                        <option value="50">Manche</option>
+                        <option value="14">Calvados</option>
+                        <option value="61">Orne</option>
+                        <option value="27">Eure</option>
+                        <option value="76">Seine Maritime</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-md-6 col-lg-6">
+                    <div class="form-group">
+                      <label><b>Satisfait du service ?</b></label><br />
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="serviceSatisfaction"
+                          id="serviceSatisfaction_0" value="0">
+                        <label class="form-check-label" for="serviceSatisfaction_0">Très</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="serviceSatisfaction"
+                          id="serviceSatisfaction_1" value="1">
+                        <label class="form-check-label" for="serviceSatisfaction_1">Bien</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="serviceSatisfaction"
+                          id="serviceSatisfaction_2" value="2">
+                        <label class="form-check-label" for="serviceSatisfaction_2">Peu</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="serviceSatisfaction"
+                          id="serviceSatisfaction_3" value="3">
+                        <label class="form-check-label" for="serviceSatisfaction_3">Pas du tout</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label><b>Satisfait du centre d’appel ?</b></label><br />
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_0"
+                          value="0">
+                        <label class="form-check-label" for="callCenter_0">Très</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_1"
+                          value="1">
+                        <label class="form-check-label" for="callCenter_1">Bien</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_2"
+                          value="2">
+                        <label class="form-check-label" for="callCenter_2">Peu</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_3"
+                          value="3">
+                        <label class="form-check-label" for="callCenter_3">Pas du tout</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label><b>Renouvelleriez vous ?</b></label><br />
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="renew" id="renew_0" value="0">
+                        <label class="form-check-label" for="renew_0">Oui</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input required class="form-check-input" type="radio" name="renew" id="renew_1" value="1">
+                        <label class="form-check-label" for="renew_1">Non</label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="knowUs"><b>Vous nous avez connu par :</b></label>
+                      <select required class="form-control" id="knowUs" name="knowUs">
+                        <option value="">-</option>
+                        <option value="Kinésithérapeute">Kinésithérapeute</option>
+                        <option value="Médecin">Médecin</option>
+                        <option value="Pharmacien">Pharmacien</option>
+                        <option value="Internet">Internet</option>
+                        <option value="Réseaux Sociaux">Réseaux Sociaux</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <button type="submit" class="btn btn-primary">Envoyer mon avis</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+ {% endblock %} 
+{# 
+{% block javascripts %}
+    <script>
+      $('.carousel').carousel({
+        interval: 4000
+      })
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $( ".payed" ).click(function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type     : 'post',
+                    dataType : 'json',
+                    url      : '{{ path('prepare_signature') }}',
+                    data     : {},
+                    success: function(data) {
+                        $.each(data.fields, function( index, value ) {
+                            $('.payedForm').prepend('<input type="hidden" name=' + index + ' value= ' + value + ' />');
+                        });
+
+                        $('.payedForm').submit();
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %} #}
