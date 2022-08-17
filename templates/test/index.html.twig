@@ -2,11 +2,13 @@
 
 {% block body %}
 <main class="container pt-2 pb-2">
-  {# <div class="row">
-    {{ render(controller('App\\Controller\\LeftSideController::leftSide')) }}
 
+<div class="row">
+         {{ render(controller('App\\Controller\\LeftSideController::leftSide')) }}
+   
+ 
     <div class="col-12 col-md-5 col-lg-6 col-xl-8 blog-main">
-      {% if ADHESION_A_RENOUVELLER and user %}
+      {# {% if ADHESION_A_RENOUVELLER and user %}
 
         {% if user.isAdmin != true %}
             {% if user.enabled == true %}
@@ -44,9 +46,9 @@
             </div>
             {% endif %}
             <br/>
-        {% endif %}
+        {% endif %} #}
 
-      {% else %}
+      {# {% else %} #}
           <div id="carouselExampleSlidesOnly" class="carousel carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -60,7 +62,7 @@
               </div>
             </div>
           </div>
-      {% endif %} #}
+      {# {% endif %}  #}
 
 
       <div class="card mt-2" style="border: 1px solid #6C7A89; border-radius: 0;">
@@ -81,7 +83,7 @@
         <div class="card-body">
           <div class="row mb-2">
             <div class="col-12 text-center mx-auto">
-              {# <img class="img-fluid" src="{{ asset('assets/img/call_number_banner.png') }}" /> #}
+              <img class="img-fluid" src="{{ asset('assets/img/call_number_banner.png') }}" />
             </div>
           </div>
           <p class="text-muted">Ce service, initié par les kinésithérapeutes normands, assure une permanance des soins
@@ -98,36 +100,38 @@
       <div class="row">
         <div class="col-12 col-sm-4 col-md-12">
           <div class="card mb-2" style="background-color: #a3a3a3; border-radius: 0;">
-            {# {% if app.user %}
+          
+            {# {% if app.user %} #}
             <div class="row mx-auto text-center">
               <div class="col-12 mt-2">
                 <img class="img-fluid" src="{{ asset('assets/img/user_picto.png') }}" />
-              </div> #}
+              </div> 
               {# {% if app.user.isEnabled == false %}
               <div class="col-12 mt-2">
                 <span class="badge badge-warning">en cours de validation</span>
               </div>
-              {% endif %}
+              {% endif %} #}
             </div>
             <div class="card-body text-center" style="color: white; font-size: 15px;">
-              Bonjour <b>{{ app.user.firstname|capitalize }}</b>, vous êtes actuellement connecté.
-              {% if is_granted('ROLE_ADMIN') %}
+              Bonjour <b>Vous</b>, vous êtes actuellement connecté.
+              {# {% if is_granted('ROLE_ADMIN') %} #}
               <br />
-              <a href="/admin/?entity=PaymentChequeEnCours" target="_blank" class="badge badge-warning"
+              {# <a href="/admin/?entity=PaymentChequeEnCours" target="_blank" class="badge badge-warning"
                 title="{{nbreChequesEnAttente}} chèques en attente">{{nbreChequesEnAttente}} chèques </a>
-              {% endif %}
-              {% if is_granted('ROLE_ADMIN') %}
-              <a href="/admin/?entity=Contact" target="_blank" class="badge badge-info"
-                title="{{nbreMessages}} messages">{{nbreMessages}} messages </a>
-              {% endif %}
+              {% endif %} #}
+              {# {% if is_granted('ROLE_ADMIN') %} #}
+              {# <a href="/admin/?entity=Contact" target="_blank" class="badge badge-info"
+                title="{{nbreMessages}} messages">{{nbreMessages}} messages </a> #}
+              {# {% endif %} #}
               <br />
-              <a href="{{ path('my_account') }}" type="button" class="btn btn-info btn-block mt-2 btn-sm"
+              <a href="#" type="button" class="btn btn-info btn-block mt-2 btn-sm"
                 style="font-size: 12px; border-radius: 0; background-color: #0071BC; border-color: #0071BC;">Mon
                 compte</a>
-              <a href="{{ path('logout') }}" type="button" class="btn btn-danger btn-block btn-sm"
+              <br />
+              <a href="#" type="button" class="btn btn-danger btn-block btn-sm"
                 style="font-size: 12px;  border-radius: 0;">Déconnexion</a>
             </div>
-            {% else %}
+            {# {% else %}
             <div class="row mx-auto text-center">
               <div class="col-12 mt-2">
                 <img class="img-fluid" src="{{ asset('assets/img/user_picto.png') }}" />
@@ -140,10 +144,10 @@
           </div>
         </div>
         <div class="col-12 col-sm-4 col-md-12 mb-2 col-xs-custom">
-          {# <a href="{{ path('donation') }}"> #}
+         <a href="#">
             <div class="card text-center pointerHover" style="border-radius: 0;">
               <img src="{{ asset('assets/img/donnation_2.png') }}">
-            </div>
+            </div> 
           </a>
         </div>
         <div class="col-12 col-sm-4 col-md-12 mb-2 col-xs-custom">
@@ -174,6 +178,7 @@
       <!-- Modal pour voter -->
       <div class="modal fade" id="survey" tabindex="-1" role="dialog" aria-labelledby="survey" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
+         <form>
           {# <form method="POST" action="{{ path('survey') }}"> #}
             <div class="modal-content">
               <div class="modal-header">
@@ -308,9 +313,10 @@
       </div>
     </aside>
   </div>
+</div>
 </main>
  {% endblock %} 
-{# 
+
 {% block javascripts %}
     <script>
       $('.carousel').carousel({
@@ -318,7 +324,7 @@
       })
     </script>
 
-    <script type="text/javascript">
+    {# <script type="text/javascript">
         $(document).ready(function () {
             $( ".payed" ).click(function(e) {
                 e.preventDefault();
@@ -338,5 +344,5 @@
                 });
             });
         });
-    </script>
-{% endblock %} #}
+    </script> #}
+{% endblock %}

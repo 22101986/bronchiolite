@@ -1,0 +1,54 @@
+<nav class="navbar-expand-lg" style="background-color: #0071BC; padding: 5px;">
+    <div class="container">
+        <div class="row" style="width: 100%; padding-left: 35px;">
+            <div class="col-12">
+                <div class="mx-auto text-center m-1">
+                    <button style="border: 2px solid white;" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <i style="color: white;" class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <ul class="navbar-nav justify-content-between collapse navbar-collapse" id="navbarNav">
+                    <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                    <a href="{{path('app_test')}}" class="nav-link text-light">Accueil</a>
+                    </li>
+                    <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                    <a href="{{path('reseau_normand')}}" class="nav-link text-light">Le réseau normand</a>
+                    </li>
+                    <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                    <a href="{{path('reseau_france')}}" class="nav-link text-light">Les réseaux de france</a>
+                    </li>
+                    <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                    <a href="{{path('app_bases')}}" class="nav-link text-light">La Bronchiolite</a>
+                    </li>
+                    <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                    <a href="{{path('asso_ukr')}}" class="nav-link text-light">L'association UKR</a>
+                    </li>
+                    <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                    <a href="{{path('contact')}}" class="nav-link text-light">Contacts</a>
+                    </li>
+
+                    {# {% if app.user %} #}
+                        <li class="nav-item dropdown" style="font-size: 11px; text-transform: uppercase;">
+                            <a style="padding: 1px;" class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Accès professionnel
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: 12px;">
+                                <a class="dropdown-item" href="{{path('pro')}}">Mon espace professionnel</a>
+                                {# {% if is_granted('ROLE_ADMIN') %} #}
+                                <a class="dropdown-item" href="{{path('app_test2')}}" target="_blank">Administration du site</a>
+                                <a class="dropdown-item" href="#" target="_blank">Archivage des adhésions</a>
+                                {# {% endif %} #}
+                                <div class="dropdown-divider"></div>
+                                <a style="color: #EF4836; font-weight: bold;" class="dropdown-item" href="#"><i style="margin-top: -4px;" class="fas fa-sign-out-alt"></i>&nbsp;Deconnexion</a>
+                            </div>
+                        </li>
+                    {# {% endif %} #} 
+
+                     {# <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
+                        <a style="padding: 1px;" class="menuElement nav-link {% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}" href="{{ path('contact') }}">Contact</a>
+                    </li> #}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

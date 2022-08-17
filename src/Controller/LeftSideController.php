@@ -38,4 +38,6 @@ class LeftSideController extends AbstractController
             'lastEpidemiologicalPoint' => $lastEpidemiologicalPoint[0],
         ]);
     }
+
+    
 }

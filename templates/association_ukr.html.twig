@@ -1,0 +1,52 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <main class="container pt-2 pb-2">
+        <div class="row">
+            {{ render(controller('App\\Controller\\LeftSideController::leftSide')) }}
+
+            <div class="col-12 col-md-8 col-lg-9 col-xl-10 blog-main">
+                <div class="card-deck" style="border-radius: 0;">
+                    <div class="card mb-4 box-shadow" style="border-radius: 0;">
+                        <div class="card-header">
+                            <div class="row mx-auto text-center">
+                                <div class="col-12">
+                                    <h1 class="mt-3 text-left" style="font-size: 50px; color:#005289;">L’UKR : Union des Kinésithérapeutes Respiratoires</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 18px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="mt-3" style="font-size: 14px;">
+                                        L’UKR, Union des Kinésithérapeutes Respiratoires est une association 1901 à but non lucratif. <br/>
+                                        Cette association a été créée en 2003 dans le but de « former, informer, promouvoir la kinésithérapie respiratoire, gérer et organiser la prise en charge des urgences en kinésithérapie respiratoire » extrait des statuts.<br/>
+                                        Dès sa création, l’UKR s’est attachée à améliorer la prise en charge des nourrissons atteints de bronchiolite en créant le Réseau Bronchiolite Normand (RBN).<br/>
+                                        L’UKR compte aujourd’hui 400 kinésithérapeutes adhérents qui participent activement aux missions du RBN (gardes, formations, missions d’information des publics concernés) et à la promotion de la kiné respiratoire.<br/>
+                                        L'UKR promeut la recherche en kinésithérapie respiratoire.<br/>
+                                    </p>
+
+                                    <div class="mt-4">
+                                        <b style="font-size: 14px;"><u>L’UKR est un organisme formateur référencé DataDock</u></b>
+                                        <p style="font-size: 14px;">(<i>détails des formations sur le site <a target="_blank" href="http://www.ukrespi.fr">www.ukrespi.fr</a></i>)</p>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <u style="font-size: 14px;"><b>Ces formations peuvent faire l’objet d’une prise en charge <a target="_blank" href="http://www.fifpl.fr">FIFPL</a> ou <a target="_blank" href="https://www.agencedpc.fr">DPC</a></b></u>
+                                        <ul style="font-size: 14px;">
+                                            <li>Pour tout renseignement contacter le secrétariat au 02 35 59 29 78 ou par mail : <a href="mailto:ukr-formation@ukrespi.fr">ukr-formation@ukrespi.fr</a></li>
+                                        </ul>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}

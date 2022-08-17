@@ -1,0 +1,48 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <main class="container pt-2 pb-2">
+        <div class="row">
+            {{ render(controller('App\\Controller\\LeftSideController::leftSide')) }}
+
+            <div class="col-12 col-md-8 col-lg-9 col-xl-10 blog-main">
+                <div class="card-deck" style="border-radius: 0;">
+                    <div class="card mb-4 box-shadow" style="border-radius: 0;">
+                        <div class="card-header">
+                            <div class="row mx-auto text-center">
+                                <div class="col-12">
+                                    <h1 class="mt-3 text-left" style="font-size: 50px; color:#005289;">Un réseau qui facilite l’accès aux soins pour les familles de nourrissons atteints de bronchiolite</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body" style="padding: 18px;">
+                            <div class="row">
+                                <div class="col-12">
+                                    <p class="mt-3" style="font-size: 14px;">
+                                        Le Réseau Bronchiolite Normand a pour objet d’assurer la continuité des soins en ville, aux enfants atteints de bronchiolite et d’asthme du nourrisson les week-end et les jours fériés pendant les périodes d’épidémie. <br/>
+                                        Il a également pour objet des actions de coordination, de prévention, d’information et de formation dans un cadre pluridisciplinaire.
+                                    </p>
+
+                                    <u style="font-size: 14px;">Le projet vise à :</u>
+                                    <ul style="font-size: 14px;">
+                                        <li><b>faciliter l’accès aux soins kinésithérapiques</b> des enfants en période d’épidémie par la mise en place d’un système de garde les week-end et les jours fériés afin de limiter le recours aux urgences pédiatriques.</li>
+                                        <li><b>Assurer la surveillance des nourrissons </b>et l'éducation des familles.</li>
+                                        <li><b>organiser la coordination des soins de kinésithérapie ambulatoires</b>, par la mise en place d’une cellule de coordination.</li>
+                                        <li><b>renforcer la coordination médico-kinésithérapique</b> en organisant l’échange des données nécessaires à une prise en charge optimale des patients.</li>
+                                        <li><b>garantir la qualité de la prise en charge</b> par la mise en oeuvre de formations kinésithérapiques et pluridisciplinaires régulières.</li>
+                                        <li><b>coordonner une réponse</b> de ville harmonisée avec le système hospitalier.</li>
+                                        <li><b>évaluer la pertinence du service rendu</b>, notamment sous ses aspects de qualité, de proximité, de rapidité et de fiabilité.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}

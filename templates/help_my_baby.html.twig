@@ -1,0 +1,331 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <main class="container pt-2 pb-2">
+        <div class="row">
+            <div class="col-12 col-md-9 col-lg-9 col-xl-10 blog-main mb-2">
+                <div class="row mx-auto text-center">
+                    <img class="img-fluid" src="{{ asset('assets/img/help_my_child.png') }}" />
+                </div>
+
+                <div class="accordion mt-2">
+                    <div class="card">
+                        <div class="card-header" id="pro_1">
+                            <h5 class="mb-0">
+                                <img class="img-fluid imgRotatable" width="35" src="{{ asset('assets/img/fleche_droite.png') }}" />
+                                <button class="btn btn-link collapsed btnCollapse" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne" style="color:#005289;">
+                                    Les Symptômes
+                                </button>
+                            </h5>
+                        </div>
+
+                        <div id="collapseOne" class="collapse" aria-labelledby="pro_1" >
+                            <div class="card-body" style="font-size: 14px;">
+                                <p style="color: #0071BC;">Votre enfant peut présenter les symptômes suivants :</p>
+                                <ul class="mt-3" style="font-size: 14px;">
+                                    <li class="mb-1" style="color:#26A65B;"><b>Toux</b></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Nez qui coule</b></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Difficultés réspiratoires</b> : <span class="text-muted">respiration bruyante et souvent sifflante, plus rapide que d'habitude</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Difficultés à s'alimenter</b></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Sommeil agité, difficile</b></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="pro_2">
+                            <h5 class="mb-0">
+                                <img class="img-fluid imgRotatable" width="35" src="{{ asset('assets/img/fleche_droite.png') }}" />
+                                <button class="btn btn-link collapsed btnCollapse" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="color:#005289;">
+                                    Quand aller chez le médecin traitant ?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="pro_2">
+                            <div class="card-body" style="font-size: 14px;">
+                                <p style="color: #0071BC;">Si votre enfant présente un ou plusieurs de ces symptômes: <b>consultez un médecin traitant.</b></p>
+
+                                <p style="color:#26A65B;">Une prise en charge adaptée sera proposée :<br />
+                                    - lavage de nez, traitement de la fièvre et la plupart du temps de la kinésithérapie respiratoire.</p>
+
+                                <p style="color: #0071BC;">Votre médecin vous orientera vers les urgences si nécessaire.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="pro_3">
+                            <h5 class="mb-0">
+                                <img class="img-fluid imgRotatable" width="35" src="{{ asset('assets/img/fleche_droite.png') }}" />
+                                <button class="btn btn-link collapsed btnCollapse" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="color:#005289;">
+                                    En quoi consiste la séance de kiné ?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseThree" class="collapse" aria-labelledby="pro_3">
+                            <div class="card-body" style="font-size: 14px;">
+                                <p style="color: #0071BC;">Le bilan : <span class="text-muted">le kinésithérapeute réalise un bilan et propose une prise en soins adaptée à votre bébé.</span></p>
+                                <p style="color: #0071BC;">Les techniques : <span class="text-muted">le kinésithérapeute les utilisera selon le résultat du bilan :</span></p>
+                                <ul class="mt-3" style="font-size: 14px;">
+                                    <li class="mb-1" style="color:#26A65B;"><b>Lavage ou désobstruction du nez : </b><br/><span class="text-muted">par instillation de sérum physiologique et mouchage.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Désencombrement bronchique : </b><br/><span class="text-muted">permet de faire remonter les sécrétions.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Toux provoquée : </b><br/><span class="text-muted">déclenchement du réflexe de toux pour enfin évacuer les sécrétions.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Education des parents : </b><br/><span class="text-muted">la technique de lavage de nez sera apprise aux parents, votre kinésithérapeute vous donnera des conseils sur la prise de traitements inhalés, les symptômes à surveiller, etc. Il sera là aussi pour répondre à vos questionnements ou doutes.</span></li>
+                                </ul>
+
+                                <p style="color: #0071BC;">Les séances quotidiennes de kinésithérapie respiratoire permettent <b>la surveillance de l'évolution</b> de la bronchite et <b>l'éducation</b> des parents dans le cadre de la prise en charge de cette maladie.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="pro_4">
+                            <h5 class="mb-0">
+                                <img class="img-fluid imgRotatable" width="35" src="{{ asset('assets/img/fleche_droite.png') }}" />
+                                <button class="btn btn-link collapsed btnCollapse" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour" style="color:#005289;">
+                                    Comment soulager mon bébé ?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFour" class="collapse" aria-labelledby="pro_4">
+                            <div class="card-body" style="font-size: 14px;">
+                                <ul class="mt-3" style="font-size: 14px;">
+                                    <li class="mb-1" style="color:#26A65B;"><b>Lavage de nez :</b><br/><span class="text-muted">plusieurs fois par jour (particulièrement avant les repas et le sommeil)<br/>Veiller à ne pas maintenir votre bébé dans une chambre trop chauffée.<br/><b>(19°C maximum)</b>. Pensez à aérer sa chambre.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Fractionner les repas :</b><br/><span class="text-muted">(donnez à manger plus souvent, en plus petites quantités) pour prévenir la déshydration.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Toux provoquée :</b><br/><span class="text-muted">déclenchement du réflexe de toux pour enfin évacuer les sécrétions.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Abstenez-vous absolument de fumer :</b><br/><span class="text-muted">pendant sa présence, dnas le logement ou la voiture ou de le tenir avec des vêtements imprégnés de l'odeur du tabac.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header" id="pro_5">
+                            <h5 class="mb-0">
+                                <img class="img-fluid imgRotatable" width="35" src="{{ asset('assets/img/fleche_droite.png') }}" />
+                                <button class="btn btn-link collapsed btnCollapse" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive" style="color:#005289;">
+                                    Quelles précautions dois-je prendre ?
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapseFive" class="collapse" aria-labelledby="pro_5">
+                            <div class="card-body" style="font-size: 14px;">
+                                <ul class="mt-3" style="font-size: 14px;">
+                                    <li class="mb-1" style="color:#26A65B;"><b>Se laver les mains, et changer régulièrement de vêtements :</b><br/><span class="text-muted">le virus se transmet par la salive, la toux, le linge et les objets souillés.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Eviter le contact avec d'autres nourrissons :</b><br/><span class="text-muted">n'embeassez pas votre bébé sur le visage ou les mains, ou mettez un masque.</span></li>
+                                    <li class="mb-1" style="color:#26A65B;"><b>Si vous êtes malade, évitez le contact rapproché :</b><br/><span class="text-muted">déclenchement du réflexe de toux pour enfin évacuer les sécrétions.</span></li>
+                                </ul>
+
+                                <p style="color: #0071BC;">En cas de besoin ou de doute, n'hésitez pas à demander conseil à votre <b>médecin</b> ou votre <b>kinésithérapeute</b> !</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mx-auto text-center mt-1">
+                    <img class="img-fluid" src="{{ asset('assets/img/fond_baby.png') }}" />
+                </div>
+            </div>
+            <aside class="col-12 col-md-3 col-lg-3 col-xl-2 blog-sidebar">
+                <div class="row">
+                    <div class="col-12 col-sm-4 col-md-12">
+                        <div class="card mb-2" style="background-color: #a3a3a3; border-radius: 0;">
+                            {# {% if app.user %} #}
+                                <div class="row mx-auto text-center">
+                                    <div class="col-12 mt-2">
+                                        <img class="img-fluid" src="{{ asset('assets/img/user_picto.png') }}" />
+                                    </div>
+                                    {# {% if app.user.isEnabled == false %} #}
+                                        <div class="col-12 mt-2">
+                                            <span class="badge badge-warning">en cours de validation</span>
+                                        </div>
+                                    {# {% endif %} #}
+                                </div>
+                                <div class="card-body text-center" style="color: white; font-size: 15px;">
+                                    Bonjour <b>vous</b>, vous êtes actuellement connecté. <br/>
+                                    <a href="#" type="button" class="btn btn-info btn-block mt-2 btn-sm" style="font-size: 12px; border-radius: 0; background-color: #0071BC; border-color: #0071BC;">Mon compte</a>
+                                    <a href="#" type="button" class="btn btn-danger btn-block btn-sm" style="font-size: 12px;  border-radius: 0;">Déconnexion</a>
+                                </div>
+                            {# {% else %}
+                                <div class="row mx-auto text-center">
+                                    <div class="col-12 mt-2">
+                                        <img class="img-fluid" src="{{ asset('assets/img/user_picto.png') }}" />
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    {{ render(controller('App\\Controller\\SecurityController::login')) }}
+                                </div>
+                            {% endif %} #}
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-12 mb-2 col-xs-custom">
+                        <a href="#">
+                            <div class="card text-center pointerHover" style="border-radius: 0;">
+                                <img src="{{ asset('assets/img/donnation_2.png') }}">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-12 col-sm-4 col-md-12 mb-2 col-xs-custom">
+                        <div class="card text-center pointerHover" data-toggle="modal" data-target="#survey" style="border-radius: 0;">
+                            <img class="img-fluid pointerHover" src="{{ asset('assets/img/survey.png') }}">
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div style="background-color: white;" class="p-3 text-center">
+                            <div class="row">
+                                <div class="col-12">
+                                    <a href="https://www.facebook.com/ReseauBronchioliteHautNormand/" target="_blank">
+                                        <img class="img-fluid" src="{{ asset('assets/img/facebook.png') }}" />
+                                    </a>
+                                </div>
+
+                                <div class="col-12 mt-3">
+                                    <div class="fb-like" data-href="https://www.facebook.com/ReseauBronchioliteHautNormand/" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal pour voter -->
+                <div class="modal fade" id="survey" tabindex="-1" role="dialog" aria-labelledby="survey" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                        <form method="POST" action="#">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Evaluation et satisfaction</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label><b>Votre enfant</b></label><br/>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="childGender" id="childGender_0" value="0">
+                                                    <label class="form-check-label" for="childGender_0">Fille</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="childGender" id="childGender_1" value="1">
+                                                    <label class="form-check-label" for="childGender_1">Garçon</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="birthday"><b>Date de naissance</b></label>
+                                                <input required type="text" class="form-control birthday" name="birthday" id="birthday">
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <label for="seanceDate"><b>Date des séances</b></label>
+                                                <input required type="text" class="form-control seanceDate" name="seanceDate" id="seanceDate">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="department"><b>Département</b></label>
+                                                <select required class="form-control" id="department" name="department">
+                                                    <option value="">-</option>
+                                                    <option value="50">Manche</option>
+                                                    <option value="14">Calvados</option>
+                                                    <option value="61">Orne</option>
+                                                    <option value="27">Eure</option>
+                                                    <option value="76">Seine Maritime</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label><b>Satisfait du service ?</b></label><br/>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="serviceSatisfaction" id="serviceSatisfaction_0" value="0">
+                                                    <label class="form-check-label" for="serviceSatisfaction_0">Très</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="serviceSatisfaction" id="serviceSatisfaction_1" value="1">
+                                                    <label class="form-check-label" for="serviceSatisfaction_1">Bien</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="serviceSatisfaction" id="serviceSatisfaction_2" value="2">
+                                                    <label class="form-check-label" for="serviceSatisfaction_2">Peu</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="serviceSatisfaction" id="serviceSatisfaction_3" value="3">
+                                                    <label class="form-check-label" for="serviceSatisfaction_3">Pas du tout</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label><b>Satisfait du centre d’appel ?</b></label><br/>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_0" value="0">
+                                                    <label class="form-check-label" for="callCenter_0">Très</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_1" value="1">
+                                                    <label class="form-check-label" for="callCenter_1">Bien</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_2" value="2">
+                                                    <label class="form-check-label" for="callCenter_2">Peu</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="callCenter" id="callCenter_3" value="3">
+                                                    <label class="form-check-label" for="callCenter_3">Pas du tout</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label><b>Renouvelleriez vous ?</b></label><br/>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="renew" id="renew_0" value="0">
+                                                    <label class="form-check-label" for="renew_0">Oui</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input required class="form-check-input" type="radio" name="renew" id="renew_1" value="1">
+                                                    <label class="form-check-label" for="renew_1">Non</label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="knowUs"><b>Vous nous avez connu par :</b></label>
+                                                <select required class="form-control" id="knowUs" name="knowUs">
+                                                    <option value="">-</option>
+                                                    <option value="Kinésithérapeute">Kinésithérapeute</option>
+                                                    <option value="Médecin">Médecin</option>
+                                                    <option value="Pharmacien">Pharmacien</option>
+                                                    <option value="Internet">Internet</option>
+                                                    <option value="Réseaux Sociaux">Réseaux Sociaux</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                                    <button type="submit" class="btn btn-primary">Envoyer mon avis</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        $( ".btnCollapse" ).click(function() {
+            let image = $(this).closest('h5').find('img');
+            let isCollapsed = !$($(this).data('target')).hasClass('show');
+            if(isCollapsed) {
+                image.addClass('imgRotated');
+            } else {
+                image.removeClass('imgRotated');
+            }
+
+            console.log(isCollapsed);
+        });
+    </script>
+{% endblock %}

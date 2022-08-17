@@ -1,0 +1,76 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <main class="container pt-2 pb-2">
+        <div class="row">
+            {{ render(controller('App\\Controller\\LeftSideController::leftSide')) }}
+
+            <div class="col-12 col-md-8 col-lg-9 col-xl-10 blog-main">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="jumbotron" style="border-radius: 0;">
+                            <h3 class="text-left" style="color: #005289;">Formulaire de contact</h3>
+                            <p class="lead text-left" style="font-size: 14px;">* indique un champ requis</p>
+                            <hr class="my-4">
+                            {{ form_start(form) }}
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="lastname">Nom*</label>
+                                            {{ form_widget(form.lastname) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="firstname">Prénom</label>
+                                            {{ form_widget(form.firstname) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="firstname">Courriel*</label>
+                                            {{ form_widget(form.email) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="firstname">Sujet*</label>
+                                            {{ form_widget(form.title) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="firstname">Message*</label>
+                                            {{ form_widget(form.message) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="firstname">Adresse</label>
+                                            {{ form_widget(form.address) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="firstname">Téléphone</label>
+                                            {{ form_widget(form.phone) }}
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group text-center">
+                                            {{ form_widget(form.save) }}
+                                        </div>
+                                    </div>
+                                </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
