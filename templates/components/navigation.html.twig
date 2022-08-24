@@ -27,22 +27,22 @@
                     <a href="{{path('contact')}}" class="nav-link text-light">Contacts</a>
                     </li>
 
-                    {# {% if app.user %} #}
+                    {% if app.user %}
                         <li class="nav-item dropdown" style="font-size: 11px; text-transform: uppercase;">
                             <a style="padding: 1px;" class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Accès professionnel
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="font-size: 12px;">
                                 <a class="dropdown-item" href="{{path('pro')}}">Mon espace professionnel</a>
-                                {# {% if is_granted('ROLE_ADMIN') %} #}
+                                {% if is_granted('ROLE_USER') %}
                                 <a class="dropdown-item" href="{{path('app_test2')}}" target="_blank">Administration du site</a>
-                                <a class="dropdown-item" href="#" target="_blank">Archivage des adhésions</a>
-                                {# {% endif %} #}
+                                <a class="dropdown-item" href="{{path('adhesion_archivage')}}" target="_blank">Archivage des adhésions</a>
+                                {% endif %}
                                 <div class="dropdown-divider"></div>
-                                <a style="color: #EF4836; font-weight: bold;" class="dropdown-item" href="#"><i style="margin-top: -4px;" class="fas fa-sign-out-alt"></i>&nbsp;Deconnexion</a>
+                                <a style="color: #EF4836; font-weight: bold;" class="dropdown-item" href="{{path('app_logout')}}"><i style="margin-top: -4px;" class="fas fa-sign-out-alt"></i>&nbsp;Deconnexion</a>
                             </div>
                         </li>
-                    {# {% endif %} #} 
+                    {% endif %} 
 
                      {# <li class="nav-item" style="font-size: 11px; text-transform: uppercase;">
                         <a style="padding: 1px;" class="menuElement nav-link {% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}" href="{{ path('contact') }}">Contact</a>

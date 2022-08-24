@@ -2,8 +2,12 @@
 
 namespace App\Controller;
 
+use App\Form\UserType;
 use App\Entity\Contact;
 use App\Form\ContactType;
+use App\Form\ArchivingType;
+use App\Repository\ArchivingRepository;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,8 +51,49 @@ class TestController extends AbstractController
             return $this->render('professionnel.html.twig');
         }
 
+    #[Route('/acount', name: 'my_account')]
+        public function account(Request $request): Response
+        {   
+            $form = $this->createForm(UserType::class);
+            $form->handleRequest($request);
+
+            return $this->render('my_account.html.twig', [
+                'form' => $form->createView(),
+            ]);
+        }    
+
+    #[Route('/adhesion/archivage', name: 'adhesion_archivage')]
+            
+        public function adhesion(Request $request, ArchivingRepository $archiving): Response
+        {  
+            $archiving = $archiving->findAll();
+            $form = $this->createForm(ArchivingType::class);
+            $form->handleRequest($request);
+
+
+            return $this->render('adhesion_archivage.html.twig', [
+                'archiving' => $archiving,
+                'form' => $form->createView(),
+            ]);
+        }
+
+        #[Route('/login', name: 'app_login')]
+        public function login(AuthenticationUtils $authenticationUtils): Response
+        {   
+            // get the login error if there is one
+            $error = $authenticationUtils->getLastAuthenticationError();
+    
+            // last username entered by the user
+            $lastUsername = $authenticationUtils->getLastUsername();
+    
+            return $this->render('login/index.html.twig', [
+                'last_username' => $lastUsername,
+                'error'=> $error,
+            ]);
+        }
+
     #[Route('/contact', name: 'contact')]
-    public function contact(Request $request): Response
+    public function contact(Request $request, ManagerRegistry $doctrine): Response
     {
         // $manager = $this->getDoctrine()->getManager();
 
@@ -59,7 +104,7 @@ class TestController extends AbstractController
 
         if ($form->isSubmitted()) {
             if ($form->isValid()) {
-                $manager = $this->getDoctrine()->getManager();
+                $manager = $doctrine->getManager();
                 $manager->persist($contact);
                 $manager->flush();
 

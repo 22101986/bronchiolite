@@ -1,0 +1,180 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <main class="container pt-2 pb-2">
+        <div class="row">
+            <div class="col-12 col-md-4 col-lg-4 col-xl-3 mb-3">
+                <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active" id="list-profile-list" data-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Ma cotisation</a>
+                    <a class="list-group-item list-group-item-action" id="list-home-list" data-toggle="list" href="#list-home" role="tab" aria-controls="home">Mes informations</a>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-lg-8 col-xl-9">
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="card mb-3" style="border-radius: 0;">
+                                    <img class="card-img-top" src="{{ asset('assets/img/adhesion.png') }}"
+                                         alt="Kine register">
+                                    <div class="card-body">
+                                        <h4 class="card-title font-weight-bold" style="color: #0071BC;">But de
+                                            l'association</h4>
+                                        <ul class="mt-3" style="font-size: 14px;">
+                                            <li class="mb-1">Former, informer, promouvoir la kinésithérapie
+                                                respiratoire
+                                            </li>
+                                            <li class="mb-1">Gérer et organiser la prise en charge en ville de la kiné
+                                                respiratoire des enfants atteints de bronchiolite, pendant les week-ends
+                                                des périodes d’épidémie
+                                            </li>
+                                        </ul>
+                                        <div class="alert alert-dark" role="alert">
+                                            L’Union des Kinésithérapeutes Respiratoires, association Loi 1901, est le
+                                            promoteur du <span
+                                                    class="font-weight-bold">Réseau bronchiolite Normand</span> depuis
+                                            2003. <a href="http://www.ukrespi.fr/" target="_blank">(ukrespi.fr)</a>
+                                        </div>
+
+                                        {# {% if not ADHESION_INTERROMPUE %} #}
+                                          {# {% if user %} #}
+                                            {# {% if user.isAdmin != true %} #}
+                                                {# {% if user.enabled == true %} #}
+                                                    {# {% if isPaid == false %} #}
+                                                        
+                                                        {# {% if isCheckPending == false %} #}
+                                                            <h4 class="card-title font-weight-bold" style="color: #0071BC;">Pour adhérer
+                                                                au Réseau Profesionnel Bronchiolite Normand :</h4>
+                                                            <ul class="mt-3" style="font-size: 14px;">
+                                                                <li class="mb-1">Payer la cotisation annuelle de 30€</li>
+                                                            </ul>
+
+                                                            <form method="POST" action="https://secure.payzen.eu/vads-payment/" class="mt-2 payedForm text-center">
+                                                                <button style="border-radius: 0;" class="btn btn-primary text-center mx-auto btn-lg payed" type="submit" name="payer" value="Payer">Payer ma cotisation par CB</button>
+                                                            </form>
+                                                            <div class="mt-2 payedForm text-center">
+                                                                ou
+                                                            </div>
+                                                            <form method="POST" action="#" class="mt-2 text-center">
+                                                                <button style="border-radius: 0;" class="btn btn-primary text-center mx-auto btn-lg" type="submit" name="payer" value="Payer">Payer ma cotisation par chèque</button>
+                                                            </form>
+                                                        {# {% else %}
+                                                            <div class="alert alert-primary" role="alert">
+                                                                Paiement de cotisation en cours ...<br/>
+                                                                Vous avez déclaré payer votre adhésion par chèque <i>le {{ payment.createdAt | date('d/m/Y') }}</i>, et nous vous en remercions.<br/>
+                                                                Nous validerons votre paiement, dès réception du chèque. <br/>
+                                                            </div>
+                                                        {% endif %} #}
+                                                        
+                                                    {# {% else %}
+                                                        <div class="alert alert-primary" role="alert">
+                                                            Vous avez payé votre cotisation {% if payment.mode == 2 %}par chèque{% else %}par carte bleue{% endif %} le {{ payment.createdAt | date('d/m/Y') }} <span style="color: black;">({{ payment.brandCard }} - {{ payment.cardNumber }})</span>.
+                                                        </div>
+                                                    {% endif %} #}
+                                                {# {% else %}
+                                                    <div class="alert alert-warning text-center" style="font-weight: bold;" role="alert">
+                                                        Vous devez attendre la validation de votre compte pour pouvoir payer votre adhésion.
+                                                    </div>
+                                                {% endif %}
+                                              {% endif %} #}
+                                            {# {% endif %} #}
+                                          {# {% endif %} #}
+                                          </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="list-home" role="tabpanel"
+                         aria-labelledby="list-home-list">
+                        <div class="card" style="border-radius: 0;">
+                            <div class="card-header">
+                                Informations personnelles
+                            </div>
+                            <div class="card-body" style="padding: 20px;">
+                                {{ form_start(form) }}
+                                <div class="form-group">
+                                    <label for="civility">Civilité*</label>
+                                    {{ form_widget(form.civility) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastname">Nom*</label>
+                                    {{ form_widget(form.lastName) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="firstname">Prénom*</label>
+                                    {{ form_widget(form.firstName) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="iban">IBAN*</label>
+                                    {{ form_widget(form.iban) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Adresse professionnelle*</label>
+                                    {{ form_widget(form.address) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="postalCode">Code postal*</label>
+                                    {{ form_widget(form.postalCode) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">Ville*</label>
+                                    {{ form_widget(form.city) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="proPhone">N° tél du cabinet*</label>
+                                    {{ form_widget(form.proPhone) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="proPhone">N° tél portable*</label>
+                                    {{ form_widget(form.persoPhone) }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="cabinetRepere">Indiquer un point de repère pour situer votre
+                                        cabinet</label>
+                                    {{ form_widget(form.cabinetRepere) }}
+                                </div>
+
+                                <div class="form-group form-check">
+                                    {{ form_widget(form.canStagiaire) }}
+                                    <label class="form-check-label" for="canStagiaire">Je souhaite accueillir un
+                                        stagiaire MK de 3ème année durant mes gardes</label>
+                                </div>
+
+                                <div class="form-group text-center">
+                                    {{ form_widget(form.save) }}
+                                </div>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {# <script type="text/javascript">
+        $(document).ready(function () {
+            $( ".payed" ).click(function(e) {
+                e.preventDefault();
+
+                $.ajax({
+                    type     : 'post',
+                    dataType : 'json',
+                    url      : '{{ path('prepare_signature') }}',
+                    data     : {},
+                    success: function(data) {
+                        $.each(data.fields, function( index, value ) {
+                            $('.payedForm').prepend('<input type="hidden" name=' + index + ' value= ' + value + ' />');
+                        });
+
+                        $('.payedForm').submit();
+                    }
+                });
+            });
+        });
+    </script> #}
+{% endblock %}
